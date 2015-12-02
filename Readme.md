@@ -1,30 +1,12 @@
-# Currículo - http://sitedo.ph/sobre-o-ph
+# Currículo - http://www.sitedoph.com.br/sobre-o-ph
 
-Meu currículo feito com LaTeX.
+Meu currículo feito com LaTeX. Para facilitar a compilação do arquivo pdf criei uma VM utilizando Vagrant e Puppet. Agora é possível compilar o pdf no próprio windows.
 
 # Para compilar:
 
-    xelatex cv.tex
-
-# Para preparar o ambiente:
-
-## Instalar o TeXlive
-
-     sudo apt-get install texlive-full
-
-## Instalar as fontes
-
-Instalar as fontes extraindo o arquivo, copiando todas para a pasta de fontes e atualizando a informação:
-
-    sudo mv * /usr/share/fonts
-    sudo fc-cache -fv
-
-To facilitate this, when the xetex package is installed (either at initial installation or later), the necessary configuration file is created in 
-TEXMFSYSVAR/fonts/conf/texlive-fontconfig.conf.
-To set up the TEX Live fonts for system-wide use (assuming you have suitable privileges), proceed as follows:
-
-    Copy the texlive-fontconfig.conf file to /etc/fonts/conf.d/09-texlive.conf.
-    Run fc-cache -fsv.
+    $ vagrant up
+    $ vagrant ssh -c 'cd /vagrant/; xelatex cv-completo-colorido.tex; xelatex cv-completo-peb.tex'
+    $ vagrant halt
 
 # Crédito:
 
